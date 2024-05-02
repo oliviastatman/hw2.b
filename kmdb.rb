@@ -92,13 +92,50 @@ Role.destroy_all
 # Do not use hard-coded foreign key IDs.
 # TODO!
 
+warner_bros = Studio.new
+warner_bros["name"] = "Warner Bros."
+warner_bros.save
+
+new_movie = Movie.new
+new_movie["title"] = "Batman Begins"
+new_movie["year_released"] = "2005"
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = warner_bros["id"]
+new_movie.save
+
+new_movie2 = Movie.new
+new_movie2["title"] = "The Dark Knight"
+new_movie2["year_released"] = "2008"
+new_movie2["rated"] = "PG-13"
+new_movie2["studio_id"] = warner_bros["id"]
+new_movie2.save
+
+new_movie3 = Movie.new
+new_movie3["title"] = "The Dark Knight Rises"
+new_movie3["year_released"] = "2012"
+new_movie3["rated"] = "PG-13"
+new_movie3["studio_id"] = warner_bros["id"]
+new_movie3.save
+
+
 # Prints a header for the movies output
+puts ""
 puts "Movies"
-puts "======"
+puts "========"
 puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+all_movies = Movie.all
+
+for movie in all_movies
+    movie_title = movie["title"]
+    year_released = movie["year_released"]
+    rated = movie["rated"]
+    
+    puts "#{title} #{year_released} #{rated}"
+   
 
 # Prints a header for the cast output
 puts ""
